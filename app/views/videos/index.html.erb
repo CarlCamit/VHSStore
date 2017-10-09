@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Videos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Genre</th>
+      <th>Release date</th>
+      <th>Classification</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @videos.each do |video| %>
+      <tr>
+        <td><%= video.name %></td>
+        <td><%= video.genre %></td>
+        <td><%= video.release_date %></td>
+        <td><%= video.classification %></td>
+        <td><%= video.description %></td>
+        <td><%= link_to 'Show', video %></td>
+        <td><%= link_to 'Rent', new_rental_path(video_id: video.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Video', new_video_path %>
